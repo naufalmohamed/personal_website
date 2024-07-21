@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: naufalmohamed.space
-Token: 1570fe74a27bbfdf1acfb2a808d2081efba943857d677582d67819ab46850102
