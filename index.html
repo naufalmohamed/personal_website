@@ -3,8 +3,8 @@
    <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=1024">
-      <title>whoami</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">      
+<title>whoami</title>
       <style>
          .dialogue-title{
          text-align: center;
@@ -88,54 +88,69 @@
          border-radius: 4px;
          font-family: 'Courier New', Courier, monospace;
          }
-         /* Responsive Styles */
-         @media (max-width: 768px) {
-         .container {
-         margin-top: 100px; /* Push the container content below the fixed menu bar */
-         }
 
-         .menu-bar {
-         flex-direction: column; /* Stack items vertically on smaller screens */
-         align-items: center; /* Center-align items horizontally */
-         }
-         .menu-bar h1 {
-         font-size: large; /* Reduce font size for smaller screens */
-         margin-bottom: 10px; /* Add spacing below the title */
-         margin-right: 0; /* Remove right margin when stacking vertically */
-         }
-         .menu-bar ul {
-         width: 100%; /* Make the list take the full width */
-         justify-content: center; /* Center-align the list items */
-         }
-         .menu-bar ul li {
-         margin: 5px 0; /* Adjust margin for smaller screens */
-         }
-         .menu-bar ul li a {
-         font-size: large; /* Reduce font size for smaller screens */
-         padding: 8px; /* Reduce padding for smaller screens */
-         }
-         }
-         @media (max-width: 480px) {
-         .container {
-         margin-top: 100px; /* Push the container content below the fixed menu bar */
-         }
 
-         .menu-bar h1 {
-         font-size: medium; /* Further reduce font size for very small screens */
-         }
-         .menu-bar ul {
-         flex-direction: column; /* Stack the menu items vertically */
-         width: 100%; /* Make the list take the full width */
-         align-items: center; /* Center-align the items */
-         }
-         .menu-bar ul li {
-         margin: 5px 0; /* Remove horizontal margin, add vertical spacing */
-         }
-         .menu-bar ul li a {
-         font-size: medium; /* Further reduce font size */
-         padding: 6px; /* Reduce padding further */
-         }
-         }
+
+
+
+
+        .menu-bar .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+margin-right: auto;
+
+        }
+
+       /* Responsive Styles */
+        @media (max-width: 1350px) {
+
+            .menu-bar {
+                flex-direction: column; /* Stack items vertically on smaller screens */
+                align-items: center; /* Center-align items horizontally */
+                position: relative; /* Change position to relative for toggle */
+            }
+            .menu-bar h1 {
+		display: none;
+                font-size: large; /* Reduce font size for smaller screens */
+                margin-bottom: 10px; /* Add spacing below the title */
+                margin-right: 0; /* Remove right margin when stacking vertically */
+            }
+            .menu-bar ul {
+                display: none; /* Hide menu items by default on small screens */
+                flex-direction: column; /* Stack menu items vertically */
+                width: 100%; /* Make the list take the full width */
+                justify-content: center; /* Center-align the list items */
+                padding: 0;
+                margin: 0;
+            }
+            .menu-bar ul.show {
+                display: flex; /* Show menu items when toggled */
+            }
+            .menu-bar ul li {
+                margin: 5px 0; /* Adjust margin for smaller screens */
+            }
+            .menu-bar ul li a {
+                font-size: large; /* Reduce font size for smaller screens */
+                padding: 8px; /* Reduce padding for smaller screens */
+            }
+            .menu-bar .menu-toggle {
+                display: flex; /* Show toggle button on small screens */
+            }
+}
+
+
+
+
+
+
+
          @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
          *,
          *::before,
@@ -320,6 +335,7 @@
    </head>
    <body style="background-color:black;">
       <div class="menu-bar">
+<button class="menu-toggle">&#9776;</button> <!-- Menu Toggle Button -->
          <h1><span style="background-color: #3b7502;">CUT TO:</span></h1>
          <ul>
             <li><a href="#section1"><span style="background-color: #FFBF00;">About Me</span></a></li>
@@ -420,9 +436,12 @@
       <br><a href = "">GitHub</a>       </p>
       </section>
       </div>
-      <!-- jQuery library -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <!-- Latest compiled JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript for toggle button
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const menu = document.querySelector('.menu-bar ul');
+            menu.classList.toggle('show');
+        });
+    </script>
    </body>
 </html>
