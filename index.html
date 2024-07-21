@@ -105,9 +105,15 @@
          .menu-bar {
          flex-direction: column; /* Stack items vertically on smaller screens */
          align-items: center; /* Center-align items horizontally */
-         position: relative; /* Change position to relative for toggle */
+         position: fixed; /* Change position to relative for toggle */
          }
          .menu-bar h1 {
+         display: none;
+         font-size: large; /* Reduce font size for smaller screens */
+         margin-bottom: 10px; /* Add spacing below the title */
+         margin-right: 0; /* Remove right margin when stacking vertically */
+         }
+         .menu-bar h1.show {
          display: none;
          font-size: large; /* Reduce font size for smaller screens */
          margin-bottom: 10px; /* Add spacing below the title */
@@ -424,7 +430,10 @@
          // JavaScript for toggle button
          document.querySelector('.menu-toggle').addEventListener('click', function() {
              const menu = document.querySelector('.menu-bar ul');
+         const menu2 = document.querySelector('.menu-bar h1');
              menu.classList.toggle('show');
+         menu2.classList.toggle('show');
+         
          });
       </script>
    </body>
